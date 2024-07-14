@@ -28,5 +28,13 @@ line_b_df = pd.read_excel(
     sheet_name = 'LINE B',
 )
 
+# EXPRESS
+line_express_df = pd.read_excel(
+    io = 'ejeep_logbook.xlsx',
+    engine = 'openpyxl',
+    sheet_name = 'EXPRESS',
+)
+
 st.dataframe(line_a_df)
 st.dataframe(line_b_df)
+st.dataframe(line_express_df)
