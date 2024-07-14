@@ -5,7 +5,7 @@ import streamlit as st
 
 # CURRENT TIME
 from datetime import datetime
-current_time = datetime.now().strftime("%Y-%m-%d --> %H:%M:%S")
+current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 st.header("Current Time:", current_time)
 st.header('EJEEP LAST SEEN AT:')
 
