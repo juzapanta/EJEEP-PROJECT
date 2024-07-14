@@ -7,14 +7,13 @@ import streamlit as st
 from datetime import datetime
 current_time = datetime.now().strftime("%Y-%m-%d" + ' - ' + "%H:%M:%S")
 st.header("Current Time:", current_time)
-
-# THE THINGY
-st.set_page_config(page_title = 'EJEEP TRACKER',
-                   layout = 'wide')
 st.header('EJEEP LAST SEEN AT:')
 
+# THE THINGY
+# st.set_page_config(page_title = 'EJEEP TRACKER',
+#                    layout = 'wide')
 
-
+# LINE A
 line_a_df = pd.read_excel(
     io = 'ejeep_logbook.xlsx',
     engine = 'openpyxl',
