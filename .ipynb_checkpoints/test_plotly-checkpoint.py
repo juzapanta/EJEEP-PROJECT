@@ -12,10 +12,12 @@ sheet_name1 = 'LINE A'
 sheet_name2 = 'LINE B'
 
 df = pd.read_excel(excel_file,
+                   engine = 'openpyxl',
                    sheet_name=sheet_name1)
 
 df1 = pd.read_excel(excel_file,
-                   sheet_name=sheet_name2)
+                    engine = 'openpyxl',
+                    sheet_name=sheet_name2)
 
 st.dataframe(df)
 st.dataframe(df1)
