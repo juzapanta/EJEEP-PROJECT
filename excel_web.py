@@ -5,8 +5,10 @@ import streamlit as st
 
 # CURRENT TIME
 from datetime import datetime
-current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-st.write("Current Time:", current_time)
+current_date = datetime.now().strftime("%Y-%m-%d")
+current_time = datetime.now().strftime("%H:%M:%S")
+st.write("Today is:", current_date)
+st.write("It is currently:", current_time)
 st.header('EJEEP LAST SEEN AT:')
 
 # THE THINGY
