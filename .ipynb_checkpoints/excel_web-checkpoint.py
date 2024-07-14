@@ -11,6 +11,8 @@ current_time = now.strftime("%H:%M:%S")
 st.write("Today is:", current_date)
 st.write("Current Time:", current_time)
 
+st.header('EJEEPS LAST SEEN AT')
+
 # LINE A
 line_a_df = pd.read_excel(
     io = 'ejeep_logbook.xlsx',
