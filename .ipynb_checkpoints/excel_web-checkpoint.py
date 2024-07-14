@@ -8,6 +8,7 @@ from datetime import datetime
 current_time = datetime.now().strftime("%Y-%m-%d" + ' - ' + "%H:%M:%S")
 st.header("Current Time:", current_time)
 
+# THE THINGY
 st.set_page_config(page_title = 'EJEEP TRACKER',
                    layout = 'wide')
 st.header('EJEEP LAST SEEN AT:')
