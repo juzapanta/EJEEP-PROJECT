@@ -3,6 +3,8 @@ import streamlit as st
 
 st.set_page_config(page_title = 'EJEEP TRACKER')
 st.header('The EJEEP is last seen at:')
+st.header('XAVIER HALL - 12:27 PM')
+
 
 excel_file = 'ejeep_logbook.xlsx'
 sheet_name1 = 'LINE A'
