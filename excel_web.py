@@ -1,5 +1,7 @@
 import pandas as pd
 import streamlit as st
+from streamlit_gsheets import GSheetsConnection
+
 # import plotly.express as px
 from datetime import datetime
 
@@ -12,6 +14,13 @@ st.write("Today is:", current_date)
 st.write("Current Time:", current_time)
 
 st.header('EJEEPS LAST SEEN AT')
+
+conn = st.experimental_connection("gsheets", type = GSheetsConnection)
+
+existing_data = conn.read(worksheet = "Sheet1", usecols=list(range(6)), ttl=5)
+existing_data = existing_data.dropna(how = "all")
+
+st.dataframe(existing_data)
 
 # LINE A
 line_a_df = pd.read_excel(
