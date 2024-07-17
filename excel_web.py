@@ -1,9 +1,7 @@
-import streamlit as st
-from streamlit_gsheets import GSheetsConnection
+import pandas as pd
 
-url = "https://docs.google.com/spreadsheets/d/1JDy9md2VZPz4JbYtRPJLs81_3jUK47nx6GYQjgU8qNY/edit?usp=sharing"
+sheet_id = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 
-conn = st.connection("gsheets", type=GSheetsConnection)
+df = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_id}/export?format=csv")
 
-data = conn.read(spreadsheet=url, usecols=[0, 1])
-st.dataframe(data)
+print(df)
