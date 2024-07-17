@@ -8,7 +8,7 @@ dfA = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_idA}/export?fo
 
 st.set_page_config(layout="centered")
 
-st.image("https://www.flaticon.com/free-icon/bus_1023464?term=bus&page=1&position=18&origin=search&related_id=1023464", width=100)
+st.image("https://cdn-icons-png.flaticon.com/512/9249/9249336.png", width=100)
 st.title("Line A")
 st.write(dfA.head(3))
 
