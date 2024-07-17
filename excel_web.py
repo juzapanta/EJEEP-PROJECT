@@ -6,7 +6,7 @@ sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 
 dfA = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_idA}/export?format=csv")
 
-st.set_page_config(layout="center")
+st.set_page_config(layout="centered")
 
 st.title("Line A")
 st.write(dfA.head(3))
