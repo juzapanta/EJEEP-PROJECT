@@ -1,7 +1,7 @@
 import pandas as pd
 import streamlit as st
 import time
-import 
+import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
