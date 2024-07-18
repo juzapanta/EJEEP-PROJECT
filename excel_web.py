@@ -76,7 +76,11 @@ if line == "LINE A":
         ax.set_xlim(min(x_coords) - 1, max(x_coords) + 1)
         ax.set_ylim(min(y_coords) - 1, max(y_coords) + 1)
 
-        plt.show()
+        
+        st.pyplot(fig)
+
+    except Exception as e:
+        st.error(f"An error occurred: {e}")
 
 time.sleep(60 * 1)  # Refresh every 5 minutes (adjust as needed)
 st.experimental_rerun()
