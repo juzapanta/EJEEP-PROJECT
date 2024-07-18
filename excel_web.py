@@ -5,7 +5,6 @@ import matplotlib
 from matplotlib import pyplot as plt
 from matplotlib.offsetbox import OffsetImage, AnnotationBbox
 
-refresh_interval = 60
 
 sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 
@@ -229,4 +228,5 @@ if line == "LINE B":
     if dfA.iloc[7, 3] == "For Charging":
         st.write('This E-jeep is only until Gate 1.')
 
-st_autorefresh(interval=refresh_interval * 1000, key="data_refresh")
+time.sleep(60 * 1) 
+st.experimental_rerun()
