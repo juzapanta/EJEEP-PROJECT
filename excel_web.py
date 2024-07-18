@@ -89,6 +89,7 @@ if line == "LINE A":
             highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
 
         st.pyplot(fig)
+        plt.close(fig)
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
 
@@ -116,6 +117,7 @@ if line == "LINE A":
             highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
 
         st.pyplot(fig)
+        plt.close(fig)
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
 
@@ -143,6 +145,7 @@ if line == "LINE A":
             highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
 
         st.pyplot(fig)
+        plt.close(fig)
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
 
@@ -172,6 +175,7 @@ if line == "LINE B":
             highlight_route(ax, "Arete", "Xavier Hall", line_coords["LINE B"])
 
         st.pyplot(fig)
+        plt.close(fig)
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
     
@@ -197,6 +201,7 @@ if line == "LINE B":
             highlight_route(ax, "Arete", "Xavier Hall", line_coords["LINE B"])
 
         st.pyplot(fig)
+        plt.close(fig)
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
 
@@ -222,6 +227,7 @@ if line == "LINE B":
             highlight_route(ax, "Arete", "Xavier Hall", line_coords["LINE B"])
 
         st.pyplot(fig)
+        plt.close(fig)
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
 
