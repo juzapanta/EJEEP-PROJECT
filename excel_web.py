@@ -39,7 +39,7 @@ line_coords = {
     "LINE A": {
         "coords": [(15, 1), (10, 1), (10, 3), (10, 4), (8, 4), (8, 4.5), (11, 4.5), (11, 5), (12.5, 5), (14.5, 5), (15, 5)],
         "place_coords": [(15, 1), (10, 3), (8, 4), (11, 4.5), (12.5, 5), (14.5, 5)],
-        "place_labels": ['HAGDAN NA BATO', 'LS COVERED COURTS', 'GATE 1', 'JSEC', 'LEONG HALL', 'XAVIER HALL']
+        "place_labels": ['Hagdan na Bato', 'Old Comm', 'Gate 1', 'Gate 2.5', 'Leong Hall', 'Xavier Hall']
     }
 }
 
@@ -51,8 +51,8 @@ if line == "LINE A":
     plot_map("A1", A1, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
 
     def highlight_route(start, end):
-        start_index = coords.index(place_coords[place_labels.index(start)])
-        end_index = coords.index(place_coords[place_labels.index(end)])
+        start_index = line_coords["LINE A"]["coords"].index(line_coords["LINE A"]["place_coords"][line_coords["LINE A"]["place_labels"].index(start)])
+        end_index = line_coords["LINE A"]["coords"].index(line_coords["LINE A"]["place_coords"][line_coords["LINE A"]["place_labels"].index(end)])
     
         ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
         ax.legend()
