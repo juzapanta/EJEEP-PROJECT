@@ -25,9 +25,14 @@ if line == "LINE A":
     def highlight_route(start, end):
     start_index = coords.index(place_coords[place_labels.index(start)])
     end_index = coords.index(place_coords[place_labels.index(end)])
-    
-    highlighted_x = x_coords[start_index:end_index+1] 
-    highlighted_y = y_coords[start_index:end_index+1]
+
+    if end_index < 11:
+        highlighted_x = x_coords[start_index:end_index+1] 
+        highlighted_y = y_coords[start_index:end_index+1]
+
+    else:
+        highlighted_x = x_coords[9:11] and x_coords[0]
+        highlighted_y = y_coordes[9:11] and y_coords[0]
     
     ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
     ax.legend()
