@@ -17,8 +17,9 @@ st.set_page_config(
 line = st.selectbox(label="Choose E-jeep Line to view", options=["LINE A", "LINE B", "EXPRESS"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
-    fig, ax = plt.subplots()
-    icon_path = 'pin.png' 
+    # Set the figure size here
+    fig, ax = plt.subplots(figsize=(10, 6))  # Adjust the width and height as needed
+    icon_path = 'pin.png'
     icon = plt.imread(icon_path)
 
     # Add icons and labels to the map
@@ -48,29 +49,49 @@ if line == "LINE A":
     # A1
     A1 = dfA.iloc[1, 1] 
     plot_map("A1", A1, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
-    plt.update_layout(
-        width=800,
-        height=600
-    )
-    st.pyplot(plt)
-    
 
+    def highlight_route(start, end):
+        start_index = coords.index(place_coords[place_labels.index(start)])
+        end_index = coords.index(place_coords[place_labels.index(end)])
+    
+        ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
+        ax.legend()
+
+    try:
+        last_item = A1
+
+        if last_item == "Hagdan na Bato":
+            highlight_route("Hagdan na Bato", "Old Comm")
+        elif last_item == "Old Comm":
+            highlight_route("Old Comm", "Gate 1")
+        elif last_item == "Gate 1":
+            highlight_route("Gate 1", "Gate 2.5")
+        elif last_item == "Gate 2.5":
+            highlight_route("Gate 2.5", "Leong Hall")
+        elif last_item == "Leong Hall":
+            highlight_route("Leong Hall", "Xavier Hall")
+        elif last_item == "Xavier Hall":
+            highlight_route("Xavier Hall", "Hagdan na Bato")
+
+        ax.plot(x_coords, y_coords, color='lightgray', label='Other Routes')  
+        ax.set_title('Line A Route', fontsize=14, pad=20)  
+        ax.axis('off')  
+
+        ax.set_xlim(min(x_coords) - 1, max(x_coords) + 1)
+        ax.set_ylim(min(y_coords) - 1, max(y_coords) + 1)
+        
+        st.pyplot(plt)
+    except Exception as e:
+        st.error(f"Error highlighting route: {e}")
+    
     # A2
     A2 = dfA.iloc[2, 1]  
     plot_map("A2", A2, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
-    plt.update_layout(
-        width=800,
-        height=600
-    )
     st.pyplot(plt)
 
     # A3
     A3 = dfA.iloc[3, 1]  
     plot_map("A3", A3, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
-    plt.update_layout(
-        width=800,
-        height=600
-    )
     st.pyplot(plt)
 
 
