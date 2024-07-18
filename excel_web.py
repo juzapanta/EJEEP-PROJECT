@@ -48,17 +48,29 @@ if line == "LINE A":
     # A1
     A1 = dfA.iloc[1, 1] 
     plot_map("A1", A1, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    plt.update_layout(
+        width=800,
+        height=600
+    )
     st.pyplot(plt)
     
 
     # A2
     A2 = dfA.iloc[2, 1]  
     plot_map("A2", A2, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    plt.update_layout(
+        width=800,
+        height=600
+    )
     st.pyplot(plt)
 
     # A3
     A3 = dfA.iloc[3, 1]  
     plot_map("A3", A3, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    plt.update_layout(
+        width=800,
+        height=600
+    )
     st.pyplot(plt)
 
 
