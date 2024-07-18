@@ -6,7 +6,10 @@ sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 
 dfA = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_idA}/export?format=csv")
 
-st.set_page_config(layout="centered")
+st.set_page_config(
+    page_title="E-jeep Tracker",
+    page_icon="https://cdn-icons-png.flaticon.com/512/9249/9249336.png"
+    )
 
 line = st.selectbox(label="Choose E-jeep Line to view", options=["LINE A", "LINE B", "EXPRESS"])
 
