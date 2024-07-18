@@ -44,14 +44,14 @@ for (x, y), label in zip(place_coords, place_labels):
 
 if line == "LINE A":
     def highlight_route(start, end):
-    start_index = coords.index(place_coords[place_labels.index(start)])
-    end_index = coords.index(place_coords[place_labels.index(end)])
+        start_index = coords.index(place_coords[place_labels.index(start)])
+        end_index = coords.index(place_coords[place_labels.index(end)])
     
-    highlighted_x = x_coords[start_index:end_index+1] 
-    highlighted_y = y_coords[start_index:end_index+1]
+        highlighted_x = x_coords[start_index:end_index+1] 
+        highlighted_y = y_coords[start_index:end_index+1]
     
-    ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
-    ax.legend()
+        ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
+        ax.legend()
 
     try:
         last_item = load_latest_item()
