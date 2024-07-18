@@ -34,7 +34,6 @@ place_labels = ['HAGDAN NA BATO', 'LS COVERED COURTS', 'GATE 1', 'JSEC', 'LEONG 
 
 
 for (x, y), label in zip(place_coords, place_labels):
-    im = OffsetImage(icon, zoom=0.005)  
     ab = AnnotationBbox(im, (x, y), xycoords='data', frameon=False)
     ax.add_artist(ab)
     ax.text(x + 0.1, y + 0.2, f' {label}', fontsize=8, verticalalignment='center_baseline', zorder=10)
