@@ -201,14 +201,5 @@ if line == "LINE B":
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
 
-st.title("Line A Data")
-st.write(dfA.head(3))
-
-st.title("Line B Data")
-st.write(dfA.iloc[5:8])
-
-st.title("Express Data")
-st.write(dfA.iloc[10:14])
-
 time.sleep(60 * 1) 
 st.experimental_rerun()
