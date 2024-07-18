@@ -32,9 +32,6 @@ y_coords = [1, 1, 3, 4, 4, 4.5, 4.5, 5, 5, 5, 5, 1]
 place_coords = [(15, 1), (10, 3), (8, 4), (11, 4.5), (12.5, 5), (14.5, 5)]
 place_labels = ['HAGDAN NA BATO', 'LS COVERED COURTS', 'GATE 1', 'JSEC', 'LEONG HALL', 'XAVIER HALL']
 
-icon_path = 'pin.png'  
-icon = plt.imread(icon_path)
-fig, ax = plt.subplots()
 
 for (x, y), label in zip(place_coords, place_labels):
     im = OffsetImage(icon, zoom=0.005)  
