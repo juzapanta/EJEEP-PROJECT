@@ -133,7 +133,7 @@ if line == "LINE A":
         st.error(f"Error highlighting route: {e}")
 
 if line == "LINE B":
-    st.title("Line A")
+    st.title("Line B")
     
     # B1
     B1 = dfA.iloc[6, 1] 
