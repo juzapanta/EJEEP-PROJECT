@@ -77,7 +77,4 @@ if line == "LINE A":
         ax.set_ylim(min(y_coords) - 1, max(y_coords) + 1)
 
         plt.show()
-    
 
-#time.sleep(60 * 1)  # Refresh every 5 minutes (adjust as needed)
-#st.experimental_rerun()
