@@ -25,5 +25,5 @@ st.write(dfA.iloc[5:8])
 st.title("Express")
 st.write(dfA.iloc[10:14])
 
-time.sleep(60 * 1)  # Refresh every 5 minutes (adjust as needed)
+time.sleep(60 * 1) 
 st.experimental_rerun()
