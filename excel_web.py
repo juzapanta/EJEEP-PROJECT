@@ -38,8 +38,14 @@ def highlight_route(ax, start, end, line_coords):
     start_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(start)])
     end_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(end)])
 
-    highlighted_x = [line_coords["coords"][i % len(line_coords["coords"])][0] for i in range(start_index, end_index + 1)]
-    highlighted_y = [line_coords["coords"][i % len(line_coords["coords"])][1] for i in range(start_index, end_index + 1)]
+    num_coords = len(line_coords["coords"])
+    highlighted_x = []
+    highlighted_y = []
+
+    for i in range(start_index, end_index + 1):
+        index = i % num_coords
+        highlighted_x.append(line_coords["coords"][index][0])
+        highlighted_y.append(line_coords["coords"][index][1])
     
     ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
     ax.legend()
