@@ -61,7 +61,7 @@ if line == "LINE A":
     st.title("Line A")
     
     # A1
-    A1 = dfA.iloc[1, 1] 
+    A1 = dfA.iloc[0, 1] 
     fig, ax = plot_map("A1", A1, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
 
     try:
@@ -85,7 +85,7 @@ if line == "LINE A":
         st.error(f"Error highlighting route: {e}")
     
     # A2
-    A2 = dfA.iloc[2, 1]  
+    A2 = dfA.iloc[1, 1]  
     fig, ax = plot_map("A2", A2, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
     
     try:
@@ -109,7 +109,7 @@ if line == "LINE A":
         st.error(f"Error highlighting route: {e}")
 
     # A3
-    A3 = dfA.iloc[3, 1]  
+    A3 = dfA.iloc[2, 1]  
     fig, ax = plot_map("A3", A3, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
     
     try:
