@@ -11,8 +11,6 @@ st.set_page_config(
     page_icon="https://cdn-icons-png.flaticon.com/512/9249/9249336.png"
     )
 
-line = st.selectbox(label="Choose E-jeep Line to view", options=["LINE A", "LINE B", "EXPRESS"])
-
 st.title("Line A")
 st.write(dfA.head(3))
 
