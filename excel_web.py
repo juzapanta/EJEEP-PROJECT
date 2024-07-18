@@ -14,7 +14,7 @@ st.set_page_config(
     page_icon="https://cdn-icons-png.flaticon.com/512/9249/9249336.png"
 )
 
-line = st.selectbox(label="Choose E-jeep Line to view", options=["LINE A", "LINE B", "EXPRESS"])
+line = st.selectbox(label="Choose E-jeep Line to view", options=["LINE A", "LINE B"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
     fig, ax = plt.subplots(figsize=(10, 6))  # Adjust the width and height as needed
