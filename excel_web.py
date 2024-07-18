@@ -54,7 +54,7 @@ if line == "LINE A":
         ax.legend()
 
     try:
-        last_item = dfA.iloc[2, 2]
+        last_item = dfA.loc[2, "B"]
 
         if last_item == "HAGDAN NA BATO":
             highlight_route("HAGDAN NA BATO", "LS COVERED COURTS")
