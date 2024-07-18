@@ -79,5 +79,5 @@ if line == "LINE A":
         plt.show()
     
 
-time.sleep(60 * 1)  # Refresh every 5 minutes (adjust as needed)
-st.experimental_rerun()
+#time.sleep(60 * 1)  # Refresh every 5 minutes (adjust as needed)
+#st.experimental_rerun()
