@@ -12,12 +12,11 @@ dfA = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_idA}/export?fo
 st.set_page_config(
     page_title="E-jeep Tracker",
     page_icon="https://cdn-icons-png.flaticon.com/512/9249/9249336.png"
-    )
+)
 
 line = st.selectbox(label="Choose E-jeep Line to view", options=["LINE A", "LINE B", "EXPRESS"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
-    # Set the figure size here
     fig, ax = plt.subplots(figsize=(10, 6))  # Adjust the width and height as needed
     icon_path = 'pin.png'
     icon = plt.imread(icon_path)
@@ -33,7 +32,17 @@ def plot_map(title, cell_value, coords, place_coords, place_labels):
     ax.set_title(title, fontsize=14, pad=20)
     ax.axis('off')
 
-    st.pyplot(fig)
+    return fig, ax
+
+def highlight_route(ax, start, end, line_coords):
+    start_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(start)])
+    end_index = line_coords["coords"].index(line_coords["place_coords"][line_coords["place_labels"].index(end)])
+    
+    highlighted_x = [line_coords["coords"][i][0] for i in range(start_index, end_index + 1)]
+    highlighted_y = [line_coords["coords"][i][1] for i in range(start_index, end_index + 1)]
+    
+    ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
+    ax.legend()
 
 line_coords = {
     "LINE A": {
@@ -48,62 +57,46 @@ if line == "LINE A":
     
     # A1
     A1 = dfA.iloc[1, 1] 
-    plot_map("A1", A1, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
-
-    def highlight_route(start, end):
-        start_index = line_coords["LINE A"]["coords"].index(line_coords["LINE A"]["place_coords"][line_coords["LINE A"]["place_labels"].index(start)])
-        end_index = line_coords["LINE A"]["coords"].index(line_coords["LINE A"]["place_coords"][line_coords["LINE A"]["place_labels"].index(end)])
-    
-        ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
-        ax.legend()
+    fig, ax = plot_map("A1", A1, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
 
     try:
         last_item = A1
 
         if last_item == "Hagdan na Bato":
-            highlight_route("Hagdan na Bato", "Old Comm")
+            highlight_route(ax, "Hagdan na Bato", "Old Comm", line_coords["LINE A"])
         elif last_item == "Old Comm":
-            highlight_route("Old Comm", "Gate 1")
+            highlight_route(ax, "Old Comm", "Gate 1", line_coords["LINE A"])
         elif last_item == "Gate 1":
-            highlight_route("Gate 1", "Gate 2.5")
+            highlight_route(ax, "Gate 1", "Gate 2.5", line_coords["LINE A"])
         elif last_item == "Gate 2.5":
-            highlight_route("Gate 2.5", "Leong Hall")
+            highlight_route(ax, "Gate 2.5", "Leong Hall", line_coords["LINE A"])
         elif last_item == "Leong Hall":
-            highlight_route("Leong Hall", "Xavier Hall")
+            highlight_route(ax, "Leong Hall", "Xavier Hall", line_coords["LINE A"])
         elif last_item == "Xavier Hall":
-            highlight_route("Xavier Hall", "Hagdan na Bato")
+            highlight_route(ax, "Xavier Hall", "Hagdan na Bato", line_coords["LINE A"])
 
-        ax.plot(x_coords, y_coords, color='lightgray', label='Other Routes')  
-        ax.set_title('Line A Route', fontsize=14, pad=20)  
-        ax.axis('off')  
-
-        ax.set_xlim(min(x_coords) - 1, max(x_coords) + 1)
-        ax.set_ylim(min(y_coords) - 1, max(y_coords) + 1)
-        
-        st.pyplot(plt)
+        st.pyplot(fig)
     except Exception as e:
         st.error(f"Error highlighting route: {e}")
     
     # A2
     A2 = dfA.iloc[2, 1]  
-    plot_map("A2", A2, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
-    st.pyplot(plt)
+    fig, ax = plot_map("A2", A2, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    st.pyplot(fig)
 
     # A3
     A3 = dfA.iloc[3, 1]  
-    plot_map("A3", A3, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
-    st.pyplot(plt)
+    fig, ax = plot_map("A3", A3, line_coords["LINE A"]["coords"], line_coords["LINE A"]["place_coords"], line_coords["LINE A"]["place_labels"])
+    st.pyplot(fig)
 
-
-st.title("Line A")
+st.title("Line A Data")
 st.write(dfA.head(3))
 
-st.title("Line B")
+st.title("Line B Data")
 st.write(dfA.iloc[5:8])
 
-st.title("Express")
+st.title("Express Data")
 st.write(dfA.iloc[10:14])
-
 
 time.sleep(60 * 1) 
 st.experimental_rerun()
