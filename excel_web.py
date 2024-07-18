@@ -51,7 +51,7 @@ line_coords = {
         "place_labels": ['Hagdan na Bato', 'Old Comm', 'Gate 1', 'Gate 2.5', 'Leong Hall', 'Xavier Hall']
     }, 
     "LINE B":{
-        "coords": [(11,1),(15,1),(15,10),(15,17),(15,20),(14,20),(14,7.5),(10,7.5),(8,7.5),(8,5),(9,5),(9,1),(11,1)]
+        "coords": [(11,1),(15,1),(15,10),(15,17),(15,20),(14,20),(14,7.5),(10,7.5),(8,7.5),(8,5),(9,5),(9,1),(11,1)],
         "place_coords": [(11,1),(15,10),(15,17),(10,7.5),(8,5)],
         "place_labels": ['Xavier Hall','AJHS','ASHS FLC Building','ISO','Arete']
     }
