@@ -10,11 +10,11 @@ sheet_idA = '16CwByzI3-J0o36W7vs4hZ1Ovmyc2uV0DhJH4Cj96rU8'
 dfA = pd.read_csv(f"https://docs.google.com/spreadsheets/d/{sheet_idA}/export?format=csv")
 
 st.set_page_config(
-    page_title="E-jeep Tracker",
-    page_icon="https://cdn-icons-png.flaticon.com/512/9249/9249336.png"
+    page_title="A-Hatid!",
+    page_icon="https://cdn-icons-png.freepik.com/512/6984/6984901.png"
 )
 
-line = st.selectbox(label="Choose E-jeep Line to view", options=["LINE A", "LINE B"])
+line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
     fig, ax = plt.subplots(figsize=(10, 6))  # Adjust the width and height as needed
@@ -41,7 +41,7 @@ def highlight_route(ax, start, end, line_coords):
     highlighted_x = [line_coords["coords"][i][0] for i in range(start_index, end_index + 1)]
     highlighted_y = [line_coords["coords"][i][1] for i in range(start_index, end_index + 1)]
     
-    ax.plot(highlighted_x, highlighted_y, color='red', linewidth=2, label=f'Route {start} to {end}')
+    ax.plot(highlighted_x, highlighted_y, color='#0305C6', linewidth=2, label=f'Route {start} to {end}')
     ax.legend()
 
 line_coords = {
@@ -59,6 +59,7 @@ line_coords = {
 
 if line == "LINE A":
     st.title("Line A")
+    st.write(dfA.head(3))
     
     # A1
     A1 = dfA.iloc[0, 1] 
@@ -134,6 +135,7 @@ if line == "LINE A":
 
 if line == "LINE B":
     st.title("Line B")
+    st.write(dfA.iloc[5:8])
     
     # B1
     B1 = dfA.iloc[5, 1] 
