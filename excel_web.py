@@ -18,7 +18,7 @@ st.set_page_config(
 line = st.selectbox(label="Select E-Jeep Line to view", options=["LINE A", "LINE B"])
 
 def plot_map(title, cell_value, coords, place_coords, place_labels):
-    fig, ax = plt.subplots(figsize=(10, 6))  # Adjust the width and height as needed
+    fig, ax = plt.subplots(figsize=(8, 5))  # Adjust the width and height as needed
     icon_path = 'pin.png'
     icon = plt.imread(icon_path)
 
